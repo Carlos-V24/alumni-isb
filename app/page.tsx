@@ -53,64 +53,72 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[250px]">
             
             {/* Imagen 1 */}
-            <div className="relative group overflow-hidden rounded-xl shadow-md md:col-span-2">
+            <div 
+              className="relative group overflow-hidden rounded-xl shadow-md md:col-span-2 cursor-pointer focus:outline-none" 
+              tabIndex={0}
+            >
               <Image 
                 src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Habilidades.png" 
                 alt="Desarrollo de habilidades"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105"
               />
-              {/* Corrección de opacidad aplicada aquí */}
-              <div className="absolute inset-0 bg-isbDeepBlue/0 group-hover:bg-isbDeepBlue/70 transition-all duration-300 flex items-center justify-center z-10">
-                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
+              <div className="absolute inset-0 bg-isbDeepBlue/0 group-hover:bg-isbDeepBlue/70 group-focus:bg-isbDeepBlue/70 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 text-center px-4">
                   Desarrollo de habilidades
                 </span>
               </div>
             </div>
 
             {/* Imagen 2 */}
-            <div className="relative group overflow-hidden rounded-xl shadow-md">
+            <div 
+              className="relative group overflow-hidden rounded-xl shadow-md cursor-pointer focus:outline-none" 
+              tabIndex={0}
+            >
               <Image 
                 src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Talleres.jpeg" 
                 alt="Talleres y cursos"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105"
               />
-              {/* Corrección de opacidad aplicada aquí */}
-              <div className="absolute inset-0 bg-isbTeal/0 group-hover:bg-isbTeal/70 transition-all duration-300 flex items-center justify-center z-10">
-                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
+              <div className="absolute inset-0 bg-isbTeal/0 group-hover:bg-isbTeal/70 group-focus:bg-isbTeal/70 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 text-center px-4">
                   Talleres y cursos
                 </span>
               </div>
             </div>
 
             {/* Imagen 3 */}
-            <div className="relative group overflow-hidden rounded-xl shadow-md">
+            <div 
+              className="relative group overflow-hidden rounded-xl shadow-md cursor-pointer focus:outline-none" 
+              tabIndex={0}
+            >
               <Image 
-                src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Trabajo_equipo.jpg" 
+                src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/tu-bucket/imagen-3.jpg" 
                 alt="Proyectos y trabajo en equipo"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105"
               />
-              {/* Corrección de opacidad aplicada aquí */}
-              <div className="absolute inset-0 bg-isbTeal/0 group-hover:bg-isbTeal/70 transition-all duration-300 flex items-center justify-center z-10">
-                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
+              <div className="absolute inset-0 bg-isbTeal/0 group-hover:bg-isbTeal/70 group-focus:bg-isbTeal/70 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 text-center px-4">
                   Proyectos y trabajo en equipo
                 </span>
               </div>
             </div>
 
             {/* Imagen 4 */}
-            <div className="relative group overflow-hidden rounded-xl shadow-md md:col-span-2">
+            <div 
+              className="relative group overflow-hidden rounded-xl shadow-md md:col-span-2 cursor-pointer focus:outline-none" 
+              tabIndex={0}
+            >
               <Image 
                 src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Convivencia.jpeg" 
                 alt="Networking y Comunidad"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105"
               />
-              {/* Corrección de opacidad aplicada aquí */}
-              <div className="absolute inset-0 bg-isbDeepBlue/0 group-hover:bg-isbDeepBlue/70 transition-all duration-300 flex items-center justify-center z-10">
-                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
+              <div className="absolute inset-0 bg-isbDeepBlue/0 group-hover:bg-isbDeepBlue/70 group-focus:bg-isbDeepBlue/70 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 text-center px-4">
                   Networking y Comunidad
                 </span>
               </div>
@@ -119,8 +127,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <div className="flex-grow"></div>
 
       {/* Footer Elegante */}
       <Footer/>
