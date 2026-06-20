@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { MapPin, Mail, Menu, X } from "lucide-react";
 import Link from 'next/link';
 
 import Navbar from "./components/Navbar";
@@ -94,7 +93,7 @@ export default function Home() {
               tabIndex={0}
             >
               <Image 
-                src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/tu-bucket/imagen-3.jpg" 
+                src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Trabajo_equipo.jpg" 
                 alt="Proyectos y trabajo en equipo"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105"

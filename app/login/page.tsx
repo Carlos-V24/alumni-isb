@@ -5,18 +5,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { 
-  User, 
-  GraduationCap, 
-  AlertCircle,
-  CheckCircle2,
-  Mail,
-  Menu,
-  X,
-  MapPin,
-  Globe,
   Loader2,
-  Lock,
-  ShieldCheck
+  Eye,
+  EyeOff,
 } from "lucide-react";
 import Link from 'next/link';
 
@@ -27,6 +18,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const router = useRouter();
 
+  const [showPassword, setShowPassword] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -59,7 +51,22 @@ export default function Login() {
 
         <div className="space-y-4">
           <input type="email" placeholder="Correo electrónico" required className="w-full px-4 py-3 border rounded-lg" onChange={(e) => setEmail(e.target.value)} />
-          <input type="password" placeholder="Contraseña" required className="w-full px-4 py-3 border rounded-lg" onChange={(e) => setPassword(e.target.value)} />
+          <div className="relative">
+            <input 
+                type={showPassword ? "text" : "password"} 
+                placeholder="Contraseña" 
+                required 
+                className="w-full px-4 py-3 border rounded-lg pr-12" 
+                onChange={(e) => setPassword(e.target.value)} 
+            />
+            <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-isbTeal transition-colors"
+            >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+            </div>
         </div>
 
         <button disabled={loading} className="w-full bg-isbDeepBlue text-white py-3 rounded-lg font-bold hover:bg-isbTeal transition flex justify-center">

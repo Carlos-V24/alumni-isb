@@ -11,14 +11,14 @@ import {
   AlertCircle,
   CheckCircle2,
   Mail,
-  Menu,
-  X,
   MapPin,
   Globe,
   Loader2,
   Lock,
   ShieldCheck,
-  Phone
+  Phone,
+  Eye,      // <- Agregado
+  EyeOff    // <- Agregado
 } from "lucide-react";
 
 const ESTADOS_MEXICO = [
@@ -61,6 +61,7 @@ export default function Registro() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // <- NUEVO ESTADO
 
   // Lógica de 4.5 años para habilitar egreso
   useEffect(() => {
@@ -253,18 +254,29 @@ export default function Registro() {
                 <input required type="tel" maxLength={10} pattern="[0-9]{10}" title="Debe contener 10 dígitos" placeholder="Ej. 5512345678" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-isbTeal outline-none transition" onChange={(e) => setFormData({...formData, telefono: e.target.value})} />
               </div>
 
+              {/* Contenedor de la Contraseña Modificado */}
               <div className="md:col-span-2 p-4 bg-gray-50 border border-gray-200 rounded-xl">
                 <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
                   <Lock size={14} className="mr-1 text-gray-400" /> Contraseña de Acceso
                 </label>
-                <input 
-                  required 
-                  type="password" 
-                  value={formData.contrasena}
-                  placeholder="Crea una contraseña segura" 
-                  className={`w-full px-4 py-2 border rounded-lg focus:ring-2 outline-none transition ${passwordError ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-isbTeal'}`}
-                  onChange={handlePasswordChange} 
-                />
+                <div className="relative">
+                  <input 
+                    required 
+                    type={showPassword ? "text" : "password"} 
+                    value={formData.contrasena}
+                    placeholder="Crea una contraseña segura" 
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 outline-none transition pr-12 ${passwordError ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-isbTeal'}`}
+                    onChange={handlePasswordChange} 
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-isbTeal transition-colors focus:outline-none"
+                    aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                  >
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  </button>
+                </div>
                 {passwordError ? (
                   <p className="text-xs text-red-500 mt-2 flex items-center">
                     <AlertCircle size={12} className="mr-1" /> {passwordError}
