@@ -56,13 +56,14 @@ export default function Home() {
             <div className="relative group overflow-hidden rounded-xl shadow-md md:col-span-2">
               <Image 
                 src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Habilidades.png" 
-                alt="Generación de Innovadores"
+                alt="Desarrollo de habilidades"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-isbDeepBlue bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center z-10">
+              {/* Corrección de opacidad aplicada aquí */}
+              <div className="absolute inset-0 bg-isbDeepBlue/0 group-hover:bg-isbDeepBlue/70 transition-all duration-300 flex items-center justify-center z-10">
                 <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
-                  Desarollo de habilidades
+                  Desarrollo de habilidades
                 </span>
               </div>
             </div>
@@ -71,11 +72,12 @@ export default function Home() {
             <div className="relative group overflow-hidden rounded-xl shadow-md">
               <Image 
                 src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Talleres.jpeg" 
-                alt="Talleres.ZIP"
+                alt="Talleres y cursos"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-isbTeal bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center z-10">
+              {/* Corrección de opacidad aplicada aquí */}
+              <div className="absolute inset-0 bg-isbTeal/0 group-hover:bg-isbTeal/70 transition-all duration-300 flex items-center justify-center z-10">
                 <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
                   Talleres y cursos
                 </span>
@@ -86,11 +88,12 @@ export default function Home() {
             <div className="relative group overflow-hidden rounded-xl shadow-md">
               <Image 
                 src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Trabajo_equipo.jpg" 
-                alt="Proyectos Clínicos"
+                alt="Proyectos y trabajo en equipo"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-isbTeal bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center z-10">
+              {/* Corrección de opacidad aplicada aquí */}
+              <div className="absolute inset-0 bg-isbTeal/0 group-hover:bg-isbTeal/70 transition-all duration-300 flex items-center justify-center z-10">
                 <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
                   Proyectos y trabajo en equipo
                 </span>
@@ -105,7 +108,8 @@ export default function Home() {
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-isbDeepBlue bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center z-10">
+              {/* Corrección de opacidad aplicada aquí */}
+              <div className="absolute inset-0 bg-isbDeepBlue/0 group-hover:bg-isbDeepBlue/70 transition-all duration-300 flex items-center justify-center z-10">
                 <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
                   Networking y Comunidad
                 </span>
