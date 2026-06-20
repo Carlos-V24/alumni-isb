@@ -46,43 +46,67 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-isbDeepBlue mb-6">Sobre Alumni ISB</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non ante dignissim, pretium erat sed, molestie ex. Fusce justo nunc, convallis nec lobortis quis, accumsan a leo. Cras venenatis nunc sit amet quam posuere, quis ornare enim pulvinar. Proin porttitor mattis purus at rhoncus.
+              Somos la comunidad que une a las generaciones de ingenieros en sistemas biomédicos de la Facultad de Ingeniería. Nuestro propósito es crear un ecosistema donde la innovación clínica, la tecnología y la experiencia profesional se encuentren para impulsar el desarrollo del sector salud.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[250px]">
             
+            {/* Imagen 1 */}
             <div className="relative group overflow-hidden rounded-xl shadow-md md:col-span-2">
-              <div className="absolute inset-0 bg-gray-300 transition-transform duration-500 group-hover:scale-105"></div>
-              <div className="absolute inset-0 bg-isbDeepBlue bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                  Generación de Innovadores
+              <Image 
+                src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Habilidades.png" 
+                alt="Generación de Innovadores"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-isbDeepBlue bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
+                  Desarollo de habilidades
                 </span>
               </div>
             </div>
 
+            {/* Imagen 2 */}
             <div className="relative group overflow-hidden rounded-xl shadow-md">
-              <div className="absolute inset-0 bg-gray-200 transition-transform duration-500 group-hover:scale-105"></div>
-              <div className="absolute inset-0 bg-isbTeal bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                  Talleres.ZIP
+              <Image 
+                src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Talleres.jpeg" 
+                alt="Talleres.ZIP"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-isbTeal bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
+                  Talleres y cursos
                 </span>
               </div>
             </div>
 
+            {/* Imagen 3 */}
             <div className="relative group overflow-hidden rounded-xl shadow-md">
-              <div className="absolute inset-0 bg-gray-400 transition-transform duration-500 group-hover:scale-105"></div>
-              <div className="absolute inset-0 bg-isbTeal bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                  Proyectos Clínicos
+              <Image 
+                src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Trabajo_equipo.jpg" 
+                alt="Proyectos Clínicos"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-isbTeal bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
+                  Proyectos y trabajo en equipo
                 </span>
               </div>
             </div>
 
+            {/* Imagen 4 */}
             <div className="relative group overflow-hidden rounded-xl shadow-md md:col-span-2">
-              <div className="absolute inset-0 bg-gray-300 transition-transform duration-500 group-hover:scale-105"></div>
-              <div className="absolute inset-0 bg-isbDeepBlue bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+              <Image 
+                src="https://djxudbldtyuyenvtiduw.supabase.co/storage/v1/object/public/src/Convivencia.jpeg" 
+                alt="Networking y Comunidad"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-isbDeepBlue bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center z-10">
+                <span className="text-white font-semibold text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-center px-4">
                   Networking y Comunidad
                 </span>
               </div>

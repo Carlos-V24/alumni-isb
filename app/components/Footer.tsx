@@ -1,5 +1,6 @@
 // components/Footer.tsx
 import { Mail, MapPin } from "lucide-react";
+import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -15,12 +16,40 @@ export default function Footer() {
               <p className="text-gray-300 text-sm leading-relaxed">
                 Asociación de Egresados de Ingeniería en Sistemas Biomédicos | UNAM.
               </p>
-              <div>
-                <p>Redes Sociales</p>
-                <a href="Instagra"></a>
-                <a href="Linkedin"></a>
-                <a href="Youtube"></a>
-              </div>
+              <h4 className="text-white font-medium mb-3">
+                Redes Sociales
+            </h4>
+              <div className="flex items-center gap-4">
+                <a
+                href="https://www.instagram.com/alumniisb?igsh=eGQzNmVoajVvZzNh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-pink-500 transition-colors duration-300"
+                aria-label="Instagram"
+                >
+                <FaInstagram size={24} />
+                </a>
+
+                <a
+                href="hhttps://www.linkedin.com/groups/12288321"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-blue-500 transition-colors duration-300"
+                aria-label="LinkedIn"
+                >
+                <FaLinkedin size={24} />
+                </a>
+                {/* <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-red-500 transition-colors duration-300"
+                aria-label="YouTube"
+                >
+                <FaYoutube size={24} />
+                </a>*/}
+                
+            </div>
             </div>
 
             <div>
