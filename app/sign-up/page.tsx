@@ -125,6 +125,7 @@ export default function Registro() {
         email: formData.correo,
         password: formData.contrasena,
         options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
           data: {
             nombres: formData.nombres,
             apellidoPaterno: formData.apellidoPaterno,
@@ -162,14 +163,30 @@ export default function Registro() {
   if (submitStatus === "success") {
     return (
       <main className="bg-gray-50 min-h-screen font-sans flex items-center justify-center p-4">
-        <div className="bg-white p-10 rounded-2xl shadow-lg max-w-md w-full text-center space-y-6">
-          <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle2 size={40} />
+        <div className="bg-white p-10 rounded-2xl shadow-xl max-w-md w-full text-center space-y-6 border border-gray-100">
+          <div className="w-20 h-20 bg-blue-50 text-isbDeepBlue rounded-full flex items-center justify-center mx-auto mb-2 shadow-inner">
+            <Mail size={40} />
           </div>
-          <h1 className="text-3xl font-bold text-isbDeepBlue">¡Registro Exitoso!</h1>
-          <p className="text-gray-600">Tus datos han sido guardados en la base de datos de Alumni ISB.</p>
-          <Link href="/" className="inline-block w-full bg-isbDeepBlue text-white font-bold py-3 rounded-xl hover:bg-isbTeal transition-all">
-            Volver al Inicio
+          <h1 className="text-3xl font-bold text-isbDeepBlue">¡Verifica tu correo!</h1>
+          
+          <div className="text-gray-600 space-y-4">
+            <p>
+              Hemos enviado un enlace de confirmación a:
+              <br/>
+              <strong className="text-gray-800 text-lg">{formData.correo}</strong>
+            </p>
+            <p className="text-sm bg-gray-50 p-4 rounded-lg border border-gray-100">
+              Por favor, haz clic en el enlace del correo para activar tu cuenta. 
+              <br/><br/>
+              <span className="text-isbTeal font-semibold">Al verificarlo, iniciarás sesión automáticamente y entrarás a tu panel.</span>
+            </p>
+            <p className="text-xs text-gray-400">
+              * No olvides revisar tu carpeta de Spam o Correo no deseado si no lo encuentras en unos minutos.
+            </p>
+          </div>
+
+          <Link href="/login" className="inline-block w-full bg-isbDeepBlue text-white font-bold py-3.5 rounded-xl hover:bg-isbTeal transition-all shadow-md mt-4">
+            Ir al Inicio de Sesión
           </Link>
         </div>
       </main>
