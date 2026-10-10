@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import Link from 'next/link';
 
-// 1. Creamos un componente interno con el contenido del formulario
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +42,7 @@ function LoginForm() {
     setLoading(true);
     setError("");
 
+    // Esto ahora guardará el token en las Cookies, donde el middleware puede verlo
     const { error: authError } = await supabase.auth.signInWithPassword({ 
       email, 
       password 
@@ -56,12 +56,22 @@ function LoginForm() {
       );
       setLoading(false);
     } else {
-      const nextFromUrl = searchParams.get('next');
-      const nextFromCookie = getCookie('next_url');
-      const targetUrl = nextFromUrl || nextFromCookie || "/dashboard";
+      // 1. Obtener la URL de redirección
+      let targetUrl = searchParams.get('next') || getCookie('next_url') || "/dashboard";
 
+      // 2. Decodificar por completo para evitar los %2F
+      targetUrl = decodeURIComponent(targetUrl); 
+      
+      // 3. Limpiar las cookies residuales
       deleteCookie('next_url');
-      router.push(targetUrl);
+
+      // 4. Forzar el refresco de los datos del servidor (refresca el estado para el middleware)
+      router.refresh();
+      
+      // 5. Redirigir al destino (con un pequeñisimo margen para que se fijen las cookies)
+      setTimeout(() => {
+        router.push(targetUrl);
+      }, 100);
     }
   };
 
@@ -140,7 +150,6 @@ function LoginForm() {
   );
 }
 
-// 2. Exportamos la página envolviendo LoginForm con <Suspense>
 export default function Login() {
   return (
     <main className="min-h-screen bg-gray-50 flex flex-col font-sans">
