@@ -344,7 +344,7 @@ export default function Registro() {
                 </select>
                 {!canEgresar && formData.generacionIngreso && (
                   <p className="text-[10px] text-isbTeal mt-1 flex items-center">
-                    <AlertCircle size={10} className="mr-1" /> Requiere 4.5 años desde el ingreso.
+                    <AlertCircle size={10} className="mr-1" /> Requiere 4.5 años desde el ingreso
                   </p>
                 )}
               </div>
