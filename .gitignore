@@ -19,6 +19,7 @@
 
 # production
 /build
+app/respuestas
 
 # misc
 .DS_Store
