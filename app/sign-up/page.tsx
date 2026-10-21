@@ -105,12 +105,14 @@ export default function Registro() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (!aceptaAviso) {
       setErrorMessage("Debes aceptar el Aviso de Privacidad para continuar.");
       return;
     }
+    
     if (passwordError || formData.contrasena.length < 8) {
       setErrorMessage("Por favor, verifica que tu contraseña cumpla con los requisitos.");
       return;
@@ -121,11 +123,26 @@ export default function Registro() {
     setErrorMessage("");
 
     try {
+      // 1. NUEVO: Verificar si el número de cuenta ya existe
+      const { data: correoOculto, error: rpcError } = await supabase.rpc('verificar_cuenta_existente', {
+        p_numero_cuenta: formData.numeroCuenta
+      });
+
+      if (rpcError) throw rpcError;
+
+      // Si la base de datos nos devuelve un correo, significa que el número ya está registrado
+      if (correoOculto) {
+        setErrorMessage(`El número de cuenta ${formData.numeroCuenta} ya se encuentra registrado y asociado al correo ${correoOculto}. Si es tu cuenta, por favor inicia sesión o recupera tu contraseña.`);
+        setIsSubmitting(false);
+        return; // Detiene el registro
+      }
+
+      // 2. Si no hay conflicto, procedemos con el registro normal
       const { data, error } = await supabase.auth.signUp({
         email: formData.correo,
         password: formData.contrasena,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          emailRedirectTo: `${window.location.origin}/auth/callback`, 
           data: {
             nombres: formData.nombres,
             apellidoPaterno: formData.apellidoPaterno,
@@ -143,7 +160,7 @@ export default function Registro() {
             añoEgreso: formData.añoEgreso || null,
             situacionActual: formData.situacionActual || null,
             otraSituacion: formData.otraSituacion || null,
-            recibirPublicidad: aceptaPubli // Enviamos el consentimiento
+            recibirPublicidad: aceptaPubli
           }
         }
       });
