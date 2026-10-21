@@ -132,7 +132,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
       // Si la base de datos nos devuelve un correo, significa que el número ya está registrado
       if (correoOculto) {
-        setErrorMessage(`El número de cuenta ${formData.numeroCuenta} ya se encuentra registrado y asociado al correo ${correoOculto}. Si es tu cuenta, por favor inicia sesión o recupera tu contraseña.`);
+        setErrorMessage(`El número de cuenta ${formData.numeroCuenta} ya se encuentra registrado y asociado al correo ${correoOculto}. Si es tu cuenta, por favor inicia sesión o recupera tu contraseña. De caso contrario contacte a alumniisbinteligencia@gmail.com`);
         setIsSubmitting(false);
         return; // Detiene el registro
       }
@@ -220,15 +220,6 @@ const handleSubmit = async (e: React.FormEvent) => {
           <h1 className="text-3xl font-bold text-isbDeepBlue mb-2">Registro de Miembro</h1>
           <p className="text-gray-600">Únete a la red oficial de Egresados de Sistemas Biomédicos UNAM</p>
         </div>
-
-        {submitStatus === "error" && (
-          <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-md">
-            <div className="flex">
-              <AlertCircle className="text-red-500 mr-3" />
-              <p className="text-sm text-red-700">{errorMessage}</p>
-            </div>
-          </div>
-        )}
 
         <form onSubmit={handleSubmit} className="space-y-8 bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-gray-100">
           
@@ -470,6 +461,26 @@ const handleSubmit = async (e: React.FormEvent) => {
         </form>
       </div>
       <Footer/>
+      {/* MODAL DE ERROR CON FONDO DESENFOCADO */}
+            {errorMessage && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+                <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center transform scale-100 transition-all">
+                  <div className="w-16 h-16 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                    <AlertCircle size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Atención</h3>
+                  <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                    {errorMessage}
+                  </p>
+                  <button
+                    onClick={() => setErrorMessage("")}
+                    className="w-full bg-isbDeepBlue text-white font-bold py-3 rounded-xl hover:bg-isbTeal transition-colors shadow-md"
+                  >
+                    Entendido
+                  </button>
+                </div>
+              </div>
+            )}
     </main>
   );
 }
