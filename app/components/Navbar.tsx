@@ -24,8 +24,9 @@ export default function Navbar() {
 
             {/* Menú de Escritorio */}
             <div className="hidden md:flex space-x-8 items-center">
-              <a href="#" className="hover:text-isbGold transition-colors duration-300">Próximamente</a>
-              <a href="./login/" className="border border-isbGold text-isbGold px-5 py-2 rounded hover:bg-isbGold hover:text-isbDeepBlue transition-all duration-300 font-semibold">
+              <a href="/stats/" className="hover:text-isbGold transition-colors duration-300">Estadisticas</a>
+              {/* <a href="#" className="hover:text-isbGold transition-colors duration-300">Próximamente</a> */}
+              <a href="/login/" className="border border-isbGold text-isbGold px-5 py-2 rounded hover:bg-isbGold hover:text-isbDeepBlue transition-all duration-300 font-semibold">
                 Iniciar Sesión
               </a>
             </div>

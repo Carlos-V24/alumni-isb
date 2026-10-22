@@ -261,7 +261,7 @@ export default function PopuliDashboard() {
       <div className="p-6 md:p-10 max-w-7xl mx-auto space-y-12 animate-in fade-in duration-500">
         
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-isbDeepBlue mb-2">Comunidad - Alumni ISB</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-isbDeepBlue mb-2">Estadisticas - Alumni ISB</h1>
         </div>
         
         {/* ================= SECCIÓN 1: EMBUDO Y KPI TITULACIÓN ================= */}
