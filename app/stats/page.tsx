@@ -1,4 +1,6 @@
 "use client";
+import MapaAlcaldias from "../components/maps/MapaAlcaldias";
+import MapaEstadosCombinado from "../components/maps/MapaEstadosCombinado";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
@@ -36,7 +38,7 @@ const paletaOrigen = ["#001F36", "#2B6CB0", "#4299E1", "#63B3ED", "#90CDF4"];
 const paletaResidencia = ["#BF953F", "#D69E2E", "#ECC94B", "#F6E05E", "#FAF089"];
 const paletaAlcaldias = ["#2F855A", "#38A169", "#48BB78", "#68D391", "#9AE6B4"];
 const paletaSexo = ["#001F36", "#BF953F", "#4A5568"];
-const paletaModalidad = ["#38A169", "#ECC94B", "#805AD5"];
+const paletaModalidad = ["#4238a1", "#894bec", "#bfa4f8"];
 
 // NUEVO: Función para calcular porcentajes en los tooltips de Chart.js
 const tooltipProporciones = {
@@ -335,28 +337,42 @@ export default function PopuliDashboard() {
           </div>
         </section>
 
-        {/* ================= SECCIÓN 4: GRÁFICAS DEMOGRÁFICAS ================= */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
-            <h3 className="text-sm font-bold text-isbDeepBlue w-full mb-4 text-center">Entidad de Origen</h3>
-            <div className="w-full relative h-[200px]">
-              <Pie data={armarDatosPastel(stats.origen_entidad, paletaOrigen)} options={chartOptionsPie} />
+      {/* ================= SECCIÓN 4: GRÁFICAS DEMOGRÁFICAS ================= */}
+        <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          
+          {/* MAPA NACIONAL COMBINADO (Ocupa 2 columnas) */}
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-between lg:col-span-2">
+            <h3 className="text-sm font-bold text-isbDeepBlue w-full mb-1 text-center">Distribución Nacional</h3>
+            <p className="text-[10px] text-gray-400 mb-4 text-center uppercase tracking-wider">Origen vs Residencia actual</p>
+            <div className="w-full flex-1 flex items-center justify-center">
+              <MapaEstadosCombinado 
+                datosOrigen={stats?.origen_entidad || []} 
+                datosResidencia={stats?.residencia_estado || []} 
+                // Paleta 1: Escala de Azules
+                paletaOrigen={["#E2E8F0", "#63B3ED", "#2B6CB0", "#001F36"]} 
+                // Paleta 2: Escala de Dorados/Cafés
+                paletaResidencia={["#ccc47f", "#bea512", "#df990d", "#ca5511"]} 
+              />
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
-            <h3 className="text-sm font-bold text-isbDeepBlue w-full mb-4 text-center">Dónde Residen</h3>
-            <div className="w-full relative h-[200px]">
-              <Pie data={armarDatosPastel(stats.residencia_estado, paletaResidencia)} options={chartOptionsPie} />
+          {/* Mapa Alcaldías (1 columna) */}
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center justify-between lg:col-span-2">
+            <h3 className="text-sm font-bold text-isbDeepBlue w-full mb-1 text-center">Distribución CDMX</h3>
+            <p className="text-[10px] text-gray-400 mb-4 text-center uppercase tracking-wider">Densidad de residencia</p>
+            <div className="w-full flex-1 flex items-center justify-center">
+              {stats?.alcaldias_cdmx && stats.alcaldias_cdmx.length > 0 ? (
+                 <MapaAlcaldias 
+                    datosAlcaldias={stats.alcaldias_cdmx} 
+                    // Paleta en tonos verdes
+                    paleta={["#E2E8F0", "#68D391", "#38A169", "#2F855A"]} 
+                 />
+              ) : (
+                 <div className="h-full flex items-center justify-center text-gray-400 text-sm">Sin datos detectados</div>
+              )}
             </div>
           </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
-            <h3 className="text-sm font-bold text-isbDeepBlue w-full mb-4 text-center">Modalidad de Trabajo</h3>
-            <div className="w-full relative h-[200px]">
-              <Pie data={armarDatosPastel(datosModalidad, paletaModalidad)} options={chartOptionsPie} />
-            </div>
-          </div>
+          
         </section>
 
 
